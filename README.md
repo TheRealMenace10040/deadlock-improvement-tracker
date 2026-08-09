@@ -51,6 +51,6 @@ node scripts/seed.mjs
 
 ## Deployment
 
-Deployed to Vercel: **[to be filled in after deploy]**
+Deployed to Vercel: **https://deadlock-improvement-tracker.vercel.app**
 
 Environment variables (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`) are configured in the Vercel project settings — the `.env` file is never committed.
