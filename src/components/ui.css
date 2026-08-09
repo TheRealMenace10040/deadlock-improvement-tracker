@@ -1,0 +1,193 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+}
+
+.spinner-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  color: var(--text-faint);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-faint);
+  padding: 40px 16px;
+  font-size: 14px;
+}
+
+.error-banner {
+  background: rgba(255, 77, 79, 0.12);
+  border: 1px solid var(--danger);
+  color: #ffb3b4;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* Pills / badges */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border: 1px solid var(--border-bright);
+  color: var(--text-dim);
+  background: var(--bg-elevated);
+}
+
+.pill-category {
+  color: var(--accent-2);
+  border-color: color-mix(in srgb, var(--accent-2) 45%, var(--border-bright));
+  background: rgba(124, 92, 255, 0.08);
+}
+
+.pill-hero {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-bright));
+  background: rgba(255, 122, 26, 0.08);
+}
+
+.status-pill {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.status-pill.status-learning {
+  color: var(--learning);
+  background: rgba(255, 77, 79, 0.12);
+}
+.status-pill.status-practicing {
+  color: var(--practicing);
+  background: rgba(255, 176, 32, 0.14);
+}
+.status-pill.status-mastered {
+  color: var(--mastered);
+  background: rgba(55, 214, 122, 0.14);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--border-bright);
+  background: var(--bg-elevated);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  border-color: transparent;
+  color: #12090100;
+  color: #120901;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+
+/* Forms */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 10px 12px;
+  font-size: 15px;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 14px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-bar select {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Progress bars */
+.progress-track {
+  display: flex;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+.progress-seg-learning { background: var(--learning); }
+.progress-seg-practicing { background: var(--practicing); }
+.progress-seg-mastered { background: var(--mastered); }
+
+.legend {
+  display: flex;
+  gap: 14px;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+.legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}

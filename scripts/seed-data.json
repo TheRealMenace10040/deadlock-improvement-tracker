@@ -1,0 +1,860 @@
+{
+  "tips": [
+    {
+      "id": 1,
+      "text": "Charge is on a long ~37s cooldown -- play aggressively against him whenever it's down.",
+      "category": "Laning",
+      "hero": "Abrams",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 2,
+      "text": "Hook doesn't go through troopers; stand behind them to block it, or carry Reactive Barrier if you don't trust your dodge.",
+      "category": "Laning",
+      "hero": "Bebop",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 3,
+      "text": "Rebuttal punishes his light-melee spam combos thanks to its low parry cooldown.",
+      "category": "Laning",
+      "hero": "Billy",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 4,
+      "text": "Keep your distance -- if she can't land Leaping Slash her lane presence is weak. Avoid tight spaces like the veil against her.",
+      "category": "Laning",
+      "hero": "Calico",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 5,
+      "text": "Play either very close or very far from him so his doorbells are hard to land; standing right in front of a thrown doorbell can block it.",
+      "category": "Laning",
+      "hero": "Doorman",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 6,
+      "text": "Stay outside his gun's hard falloff range; buy Close Quarters if you're forced to fight him up close.",
+      "category": "Laning",
+      "hero": "Drifter",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 7,
+      "text": "Take cover after his shockwave hits you to avoid the follow-up fire-rate slow/bonus damage. He's generally weak with a big hitbox -- poke him constantly.",
+      "category": "Laning",
+      "hero": "Dynamo",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 8,
+      "text": "Use cover or the veil to dodge his arrows. He's squishy, so consider diving him if he pushes up.",
+      "category": "Laning",
+      "hero": "Grey Talon",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 9,
+      "text": "Avoid prolonged trades once her fixation stacks are high on you -- take short trades and let stacks decay instead.",
+      "category": "Laning",
+      "hero": "Haze",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 10,
+      "text": "Move unpredictably and crouch to dodge her headshots; carry a defensive barrier item for her ultimate.",
+      "category": "Laning",
+      "hero": "Holliday",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 11,
+      "text": "Avoid open ground so he can't easily land afterburn; use height and wall jumps to dodge Flame Dash.",
+      "category": "Laning",
+      "hero": "Infernus",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 12,
+      "text": "Force her to burn Stone Form (long cooldown), then punish the ~40s window it's down. Her head hitbox is large for headshots.",
+      "category": "Laning",
+      "hero": "Ivy",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 13,
+      "text": "Stay one dash away from cover -- his Arctic Beam ramps up the longer it's on you.",
+      "category": "Laning",
+      "hero": "Kelvin",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 14,
+      "text": "Position on the opposite side of high ground so you keep vision of him without being hit by Ground Strike.",
+      "category": "Laning",
+      "hero": "Lash",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 15,
+      "text": "Don't stand bunched with your troopers -- poke from off angles so he has to choose between you and them.",
+      "category": "Laning",
+      "hero": "Mo & Krill",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 16,
+      "text": "Focus denies (her bullet velocity is weak). When she shields herself or an ally, shoot the other target or disengage.",
+      "category": "Laning",
+      "hero": "Paige",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 17,
+      "text": "Don't hide behind obvious cover when she charges Carbine -- she'll bomb you out of it. Use veils or unpredictable positioning instead.",
+      "category": "Laning",
+      "hero": "Paradox",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 18,
+      "text": "Focus spirit damage on him -- he starts with -15% spirit resistance.",
+      "category": "Laning",
+      "hero": "Pocket",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 19,
+      "text": "Aim for headshots (big hitbox, only 25% reduction from his hat). Don't stand beside your trooper when his Power Surge is active.",
+      "category": "Laning",
+      "hero": "Seven",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 20,
+      "text": "His knives refresh stack duration when chained -- hide out after getting hit until the damage fully stops.",
+      "category": "Laning",
+      "hero": "Shiv",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 21,
+      "text": "Dodge his bolt with stamina right after he redirects it, at the last second.",
+      "category": "Laning",
+      "hero": "Sinclair",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 22,
+      "text": "Focus his lane partner instead -- shooting Victor just charges his Pain Battery.",
+      "category": "Laning",
+      "hero": "Victor",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 23,
+      "text": "Watch for the Stake + Flight combo. Stay near cover while your wave is airborne; play aggressive when Flight/Stake are both down.",
+      "category": "Laning",
+      "hero": "Vindicta",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 24,
+      "text": "Learn to parry Puddle Punch with Rebuttal -- it reflects damage and heals you.",
+      "category": "Laning",
+      "hero": "Viscous",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 25,
+      "text": "Fight her at range (bad weapon falloff/spread). Keep your HP above half -- Lethal Venom kills fast once you're low.",
+      "category": "Laning",
+      "hero": "Viper",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 26,
+      "text": "Keep 2 stamina banked (buy Extra Stamina if you start with less) to escape his cage.",
+      "category": "Laning",
+      "hero": "Warden",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 27,
+      "text": "Avoid standing in the open -- her card-charge is faster on heroes than troopers and hits hard once she's got souls + Quicksilver Reload.",
+      "category": "Laning",
+      "hero": "Wraith",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 28,
+      "text": "Avoid close-range trades (she wins with Crimson Slash) -- poke at range and punish her during Power Slash's windup.",
+      "category": "Laning",
+      "hero": "Yamato",
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 29,
+      "text": "Learn dash jumping: dash, then jump right as your stamina bar flashes blue.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 30,
+      "text": "Crouch off ziplines instead of jumping off -- it preserves your momentum.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 31,
+      "text": "Slide whenever you can -- it gives extra speed and infinite ammo.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 32,
+      "text": "Wall jump near any wall for a free momentum boost with no stamina cost.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 33,
+      "text": "Mantle-glide every ledge: mantle, then hold crouch.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 34,
+      "text": "Memorize vent locations on the map to speed up rotations.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 35,
+      "text": "Save stamina before a fight so you can chase or escape.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 36,
+      "text": "Use secret-shop teleporters to move around quickly, especially early game.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 37,
+      "text": "Instant air dash (dash immediately after jumping) avoids the momentum loss of a normal ground-to-air transition.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 38,
+      "text": "Air strafe while airborne (A/D + mouse movement) for extra speed -- don't hold W in the air, it does nothing.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 39,
+      "text": "Bunny hop (jump the instant you land) to keep your air-strafe velocity between jumps.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 40,
+      "text": "Corner boost: air-strafe into a wall corner to launch upward instead of sideways, buying extra air-strafe time.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 41,
+      "text": "Edge boost: wall-jump forward off a nearby wall to go straight ahead instead of being redirected -- good for quick escapes.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 42,
+      "text": "Learn specific map rollouts (bridge-buff corner boost, mid boss roof jump, vent wall jump) to move between key spots faster.",
+      "category": "Movement/Mechanics",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 43,
+      "text": "Prioritize pushing and clearing trooper waves -- they're your most consistent soul source.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 44,
+      "text": "Learn camp/buff spawn timings so you can plan farm routes around them.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 45,
+      "text": "Stealing an enemy jungle camp is worth double value -- you gain souls and deny them from the enemy.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 46,
+      "text": "Farm backward after pushing a wave to pressure the enemy while you collect souls -- don't overstay though.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 47,
+      "text": "Don't split a trooper wave across more than ~3 teammates -- soul efficiency drops fast.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 48,
+      "text": "Shoot soul orbs (yours and theirs) to secure or deny value, both in lane and at Sacrifice events.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 49,
+      "text": "Buy up to your unsecured soul total before playing risky, so you don't hand over a big bounty if you die.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 50,
+      "text": "Grab boxes and golden statues during lane downtime -- free souls/buffs.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 51,
+      "text": "Sacrifice events are high value (extra wave worth + buffs) -- worth contesting or stealing.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 52,
+      "text": "Don't ignore the Soul Urn: deposit faster if you're behind; deny or fight around it if you're ahead.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 53,
+      "text": "Solo lane farming (repeatedly shoving/clearing alone) is a legit way for a carry to snowball -- trooper souls scale up significantly when you're farming alone.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 54,
+      "text": "\"Priority\" (more friendly troopers pushing than enemy) is your window to safely leave lane and jungle-farm.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 55,
+      "text": "If you're solo farming, kill the wave before it crosses into your own territory unless you have an escape route -- dying alone loses your unsecured souls and hands the enemy a big bounty.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 56,
+      "text": "Prioritize clearing the wave over finishing a jungle camp if you're running low on time in the cycle.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 57,
+      "text": "Solo walkers are worth actively hunting as a carry -- a big, uncontested soul payout.",
+      "category": "Economy/Farming",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 58,
+      "text": "Green items = Vitality (health, movement, survivability); Orange = Weapon (gun damage/fire rate/ammo); Purple = Spirit (ability damage/cooldowns).",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 59,
+      "text": "Items are a personal resource, a team resource, and a toolkit -- counter-build into whoever is dominating the lobby rather than just scaling passively.",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 60,
+      "text": "Key counter items: Bullet Resist/Metal Skin vs. gun damage, Disarming Hex/Rusted Barrel to shut down a gun-reliant hero, Slowing Hex vs. chasers, Spellbreaker vs. ability burst, Rebuttal vs. parry-able melee kits, Dispel Magic to clear debuffs, Counter Spell to parry abilities, and healing-reduction items (Heal Bane, Crippling Headshot, Inhibitor, Spirit Burn) vs. sustain-heavy heroes.",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 61,
+      "text": "A counter item forces the enemy into a bad choice: avoid you, or spend a slot and souls countering your counter -- either way it weakens their build.",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 62,
+      "text": "An item's value scales with how many enemies on the other team it counters at once.",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 63,
+      "text": "Track your investment bars (bottom of the item panel) and try to hit a category's spike threshold (like the 4.8k mark) before the enemy does.",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 64,
+      "text": "Don't blindly copy high-win-rate builds -- look for builds from known, trusted community creators, or tweak a template yourself to learn what each item actually does.",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 65,
+      "text": "Know your character's first major power spike and look to fight around it once you hit it.",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 66,
+      "text": "Counter-buy based on who's actually winning fights for the enemy team, not just who's ahead on the scoreboard.",
+      "category": "Itemization",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 67,
+      "text": "Fight when you have a real power spike (a big investment item or a maxed ability) -- try to sync power spikes with teammates.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 68,
+      "text": "Win the laning stage first, then use your lead to invade the enemy jungle and gank.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 69,
+      "text": "Fight under your own Walkers when you can -- the resistance buff there makes it a safer place to start fights.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 70,
+      "text": "Check both teams' ultimate availability (top-of-screen icons) before committing to a fight.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 71,
+      "text": "Hold high ground or veils for positional advantage in fights.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 72,
+      "text": "Midgame loop: fix your wave -> create time -> move -> take an objective -> reset -> repeat.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 73,
+      "text": "Push a wave before starting a fight -- clearing it buys you ~30-45 seconds before it becomes a problem again.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 74,
+      "text": "In late game (25+ min), set up on an aggressively pushed wave and wait for the enemy to respond before engaging.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 75,
+      "text": "Don't jungle while an objective or fight is active elsewhere on the map -- apply pressure or contest it instead.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 76,
+      "text": "Track enemy habits over time (who roams, who overextends) -- predictable patterns can be punished.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 77,
+      "text": "Use side objectives (Urn, a walker push, Mid Boss) as misdirection to pull enemy attention from where you actually want to play.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 78,
+      "text": "Deadlock is a game of trades -- you won't hold every objective forever, so make sure you take something of comparable value back when you lose one.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 79,
+      "text": "If the enemy is heavily committing to one fight/point on the map, look for the opening it creates elsewhere.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 80,
+      "text": "Play passive when you're behind on money/numbers/pressure; play aggressive when you're ahead.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 81,
+      "text": "Being ahead in kills/souls but still losing is usually a midgame rotation/timing problem, not a mechanics problem.",
+      "category": "Macro/Objectives",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 82,
+      "text": "Take fights with a clear purpose -- not just because a fight is available.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 83,
+      "text": "Don't die trying to save a teammate who made a bad play; if you can't reach them in time, don't force it.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 84,
+      "text": "Don't over-chase kills -- forcing an enemy to retreat and burn respawn/regen time is often just as valuable as the kill.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 85,
+      "text": "Track who's used their Rejuvenator (underline indicator under their name) to know who's more killable.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 86,
+      "text": "Call and focus one target as a team instead of splitting damage across multiple targets.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 87,
+      "text": "Only fight when you have the advantage -- don't force a 1v1 against someone far above you in net worth.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 88,
+      "text": "After winning a fight, immediately capitalize -- take Mid Boss, run the Urn, take an objective, or steal jungle.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 89,
+      "text": "Don't join a fight that's already lost or over -- make impact elsewhere instead (split push, deny an objective).",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 90,
+      "text": "Watch the map constantly -- missing enemies on the minimap tell you where the danger is.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 91,
+      "text": "Learn hero matchups both ways: know what beats your hero and what your hero beats.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 92,
+      "text": "Avoid getting 3+ teammates involved in one kill when possible -- soul splits get punishing past 2 players on a kill.",
+      "category": "Teamfighting",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 93,
+      "text": "Focus each session on specific, concrete goals (like objective timing) instead of just chasing wins -- rank follows skill over time.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 94,
+      "text": "Accept that you'll lose close to 40% of games no matter how well you play -- sustaining a 60%+ win rate is very hard.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 95,
+      "text": "Judge a death by 4 factors: how early it happened (before 20 min matters less), where it happened (enemy side is better than yours), how many enemies were involved (3+ splits their reward), and whether you had unsecured souls on you.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 96,
+      "text": "Don't play scared in ranked -- Deadlock rewards aggression, and most early deaths matter less than they feel like they do.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 97,
+      "text": "Your teammates aren't the reason you're stuck -- review your own mistakes after a loss.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 98,
+      "text": "Mute a tilting teammate rather than let them affect your play.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 99,
+      "text": "After every loss, pick one mistake and focus on fixing just that one thing in your next game.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 100,
+      "text": "Improvement comes in small increments -- focus on one thing at a time rather than trying to fix everything at once.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 101,
+      "text": "Distinguish a bad idea from bad execution when reviewing a play that didn't work.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 102,
+      "text": "Communicate with simple pings and call-outs before making a play.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    },
+    {
+      "id": 103,
+      "text": "If you're the closest player to a lane or a developing problem, it's on you to handle it.",
+      "category": "Mindset",
+      "hero": null,
+      "status": "Learning",
+      "source": "Extracted from Dennis's uploaded video transcripts (dl_transcripts.xlsx) + current patch research (Aug 2026)"
+    }
+  ],
+  "reading": [
+    {
+      "id": 1,
+      "title": "Hero Archetypes",
+      "body": "Carries are weak early, strong late; Tanks soak damage; Supports enable; Assassins are strong early, fall off late; Brawlers mix carry/tank. Items let you flex any hero into different roles though."
+    },
+    {
+      "id": 2,
+      "title": "Basic Laning Loop",
+      "body": "Push wave, then shoot the enemy hero, then the neutral creep, then farm boxes/spend money. Heal by returning to base or fighting near your wave's trooper anchor. If losing lane badly, play defensively near your tower and just deny/secure souls."
+    },
+    {
+      "id": 3,
+      "title": "Basic Midgame Rules",
+      "body": "Constantly check the map. Don't cross the halfway line unless you're ready to die there. Compare relative net worth (\"numbers\") before committing to a fight. Team fights are mostly about everyone focusing the same target."
+    },
+    {
+      "id": 4,
+      "title": "Current Patch: Ranked/Standard Split (July 30, 2026)",
+      "body": "Deadlock now has two matchmaking modes: Standard (casual, no rank effect, any party size) and Ranked (seasonal, calibration phase, hero-mastery gate of 60 Standard wins + 15 wins on 3 heroes, pre-game hero-swap phase)."
+    },
+    {
+      "id": 5,
+      "title": "Current Patch: Soul Urn Rework",
+      "body": "The Soul Urn is now its own standalone objective. The runner gets a deposit bounty, souls release as orbs on deposit, and the Urn self-walks toward the deposit point after 3 minutes if unclaimed."
+    },
+    {
+      "id": 6,
+      "title": "Current Patch: Unstable Rift",
+      "body": "Replaced the old King of the Hill objective. Spawns randomly in a lane roughly every 7 minutes (60s early visual cue, 25s global announcement). Comeback bonuses scale with how far behind a team is; the winning team gets a Rift Trooper wave."
+    }
+  ]
+}
