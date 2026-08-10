@@ -29,7 +29,6 @@ export default function TipEditorSheet({
   const [text, setText] = useState(tip?.text ?? '');
   const [category, setCategory] = useState<TipCategory>(tip?.category ?? TIP_CATEGORIES[0]);
   const [heroInput, setHeroInput] = useState(tip?.hero ?? '');
-  const [source, setSource] = useState(tip?.source ?? '');
   const [status, setStatus] = useState<TipStatus>(tip?.status ?? 'Learning');
 
   const [saving, setSaving] = useState(false);
@@ -51,7 +50,6 @@ export default function TipEditorSheet({
       text: text.trim(),
       category,
       hero: trimmedHero || null,
-      source: source.trim() || null,
       status,
     };
 
@@ -167,11 +165,6 @@ export default function TipEditorSheet({
               </>
             )}
           </div>
-        </div>
-
-        <div className="field">
-          <label>Source</label>
-          <input value={source} onChange={(e) => setSource(e.target.value)} placeholder="Optional" />
         </div>
 
         <div className="field">

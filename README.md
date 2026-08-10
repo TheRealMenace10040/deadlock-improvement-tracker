@@ -4,7 +4,7 @@ A personal, mobile-first web app for tracking skill development in [Deadlock](ht
 
 ## Features
 
-- **Tips Library** — a library of tips with category, optional hero, optional source, and a 3-stage mastery status (`Learning` → `Practicing` → `Mastered`, tap the status pill to cycle). Filterable by category, hero, and status.
+- **Tips Library** — a library of tips with category, optional hero, and a 3-stage mastery status (`Learning` → `Practicing` → `Mastered`). Filterable by category, hero, and status. Tips can be added, edited, and deleted via a bottom-sheet editor; hero-specific tips can have an uploaded icon (falls back to a letter avatar).
 - **Mastery Overview** — per-category progress bars, an overall mastery score, and a hero-filtered view.
 - **Performance Log** — freeform post-session notes (what went well / poorly / key takeaway), optionally tagged with the tips you were practicing, in a reverse-chronological list.
 - **Reading & Knowledge** — general knowledge / patch-note style entries, separate from the mastery-tracked tips. Current-patch entries are pinned to the top.
@@ -34,10 +34,11 @@ npm run dev
 
 Schema lives in Supabase (see `scripts/seed.mjs` for the shape of the data). Tables:
 
-- `tips` — `id`, `text`, `category` (enum), `hero` (nullable text), `source` (nullable text), `status` (enum: Learning/Practicing/Mastered), `created_at`
+- `tips` — `id`, `text`, `category` (enum), `hero` (nullable text), `status` (enum: Learning/Practicing/Mastered), `created_at`
 - `performance_log` — `id`, `went_well`, `went_poorly`, `key_takeaway`, `created_at`
 - `performance_log_tips` — join table linking a log entry to the tips tagged as "practiced"
 - `reading` — `id`, `title`, `body`, `is_current_patch` (bool, pins the entry to the top of the Reading tab), `created_at`
+- `heroes` — `name` (primary key), `icon_url` (nullable, points into the `hero-icons` Storage bucket), `created_at` — looked up by hero name, not a strict foreign key
 
 RLS is enabled on all tables with an open policy (anon key has full read/write) since this is a single-user personal tool with no login.
 

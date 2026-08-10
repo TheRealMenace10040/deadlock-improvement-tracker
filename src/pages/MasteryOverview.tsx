@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import type { Tip, TipStatus } from '../types';
+import type { HeroFilterValue, Tip, TipStatus } from '../types';
 import { TIP_CATEGORIES } from '../types';
-import HeroFilterChips, { type HeroFilterValue } from '../components/HeroFilterChips';
-import { useHeroIcons } from '../hooks/useHeroIcons';
+import HeroFilterSelect from '../components/HeroFilterSelect';
 import '../components/ui.css';
 
 interface Breakdown {
@@ -45,7 +44,7 @@ function ProgressBar({ b }: { b: Breakdown }) {
 function scopeLabel(hero: HeroFilterValue): string {
   if (hero === 'All') return 'Overall';
   if (hero === 'General') return 'General';
-  return `vs ${hero}`;
+  return hero;
 }
 
 export default function MasteryOverview() {
@@ -53,8 +52,6 @@ export default function MasteryOverview() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hero, setHero] = useState<HeroFilterValue>('All');
-
-  const { iconMap } = useHeroIcons();
 
   useEffect(() => {
     void load();
@@ -98,7 +95,9 @@ export default function MasteryOverview() {
         </h1>
       </div>
 
-      <HeroFilterChips heroes={heroes} iconMap={iconMap} value={hero} onChange={setHero} />
+      <div className="filter-bar">
+        <HeroFilterSelect heroes={heroes} value={hero} onChange={setHero} />
+      </div>
 
       {error && <div className="error-banner">{error}</div>}
 

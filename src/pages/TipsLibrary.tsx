@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import type { Tip, TipCategory, TipStatus } from '../types';
+import type { HeroFilterValue, Tip, TipCategory, TipStatus } from '../types';
 import { TIP_CATEGORIES, TIP_STATUSES } from '../types';
 import StatusPill from '../components/StatusPill';
-import HeroFilterChips, { type HeroFilterValue } from '../components/HeroFilterChips';
+import HeroFilterSelect from '../components/HeroFilterSelect';
 import TipEditorSheet from '../components/TipEditorSheet';
 import HeroIcon from '../components/HeroIcon';
 import { useHeroIcons } from '../hooks/useHeroIcons';
@@ -85,6 +85,7 @@ export default function TipsLibrary() {
             </option>
           ))}
         </select>
+        <HeroFilterSelect heroes={heroes} value={hero} onChange={setHero} />
         <select value={status} onChange={(e) => setStatus(e.target.value as TipStatus | 'All')}>
           <option value="All">All statuses</option>
           {TIP_STATUSES.map((s) => (
@@ -94,8 +95,6 @@ export default function TipsLibrary() {
           ))}
         </select>
       </div>
-
-      <HeroFilterChips heroes={heroes} iconMap={iconMap} value={hero} onChange={setHero} />
 
       {error && <div className="error-banner">{error}</div>}
 
@@ -112,7 +111,7 @@ export default function TipsLibrary() {
                 {tip.hero ? (
                   <span className="pill pill-hero">
                     <HeroIcon name={tip.hero} iconUrl={iconMap.get(tip.hero)} size={14} />
-                    vs {tip.hero}
+                    {tip.hero}
                   </span>
                 ) : (
                   <span className="pill pill-general">General</span>
@@ -123,28 +122,21 @@ export default function TipsLibrary() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'space-between',
+                  justifyContent: 'flex-end',
                   marginTop: 10,
                   gap: 8,
                 }}
               >
-                {tip.source ? (
-                  <span style={{ fontSize: 11.5, color: 'var(--text-faint)' }}>via {tip.source}</span>
-                ) : (
-                  <span />
-                )}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <StatusPill status={tip.status} />
-                  <button
-                    type="button"
-                    className="icon-btn"
-                    onClick={() => setEditingTip(tip)}
-                    aria-label="Edit tip"
-                    title="Edit tip"
-                  >
-                    ✏️
-                  </button>
-                </div>
+                <StatusPill status={tip.status} />
+                <button
+                  type="button"
+                  className="icon-btn"
+                  onClick={() => setEditingTip(tip)}
+                  aria-label="Edit tip"
+                  title="Edit tip"
+                >
+                  ✏️
+                </button>
               </div>
             </div>
           ))}

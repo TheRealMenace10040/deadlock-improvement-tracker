@@ -26,10 +26,11 @@ export interface Tip {
   text: string;
   category: TipCategory;
   hero: string | null;
-  source: string | null;
   status: TipStatus;
   created_at: string;
 }
+
+export type HeroFilterValue = string | 'All' | 'General';
 
 export interface PerformanceLogEntry {
   id: string;
