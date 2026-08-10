@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import type { Tip, TipStatus } from '../types';
 import { TIP_CATEGORIES } from '../types';
+import HeroFilterChips, { type HeroFilterValue } from '../components/HeroFilterChips';
+import { useHeroIcons } from '../hooks/useHeroIcons';
 import '../components/ui.css';
 
 interface Breakdown {
@@ -40,11 +42,19 @@ function ProgressBar({ b }: { b: Breakdown }) {
   );
 }
 
+function scopeLabel(hero: HeroFilterValue): string {
+  if (hero === 'All') return 'Overall';
+  if (hero === 'General') return 'General';
+  return `vs ${hero}`;
+}
+
 export default function MasteryOverview() {
   const [tips, setTips] = useState<Tip[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [hero, setHero] = useState<string>('All');
+  const [hero, setHero] = useState<HeroFilterValue>('All');
+
+  const { iconMap } = useHeroIcons();
 
   useEffect(() => {
     void load();
@@ -65,10 +75,11 @@ export default function MasteryOverview() {
     return Array.from(set).sort();
   }, [tips]);
 
-  const scoped = useMemo(
-    () => (hero === 'All' ? tips : tips.filter((t) => t.hero === hero)),
-    [tips, hero]
-  );
+  const scoped = useMemo(() => {
+    if (hero === 'All') return tips;
+    if (hero === 'General') return tips.filter((t) => t.hero === null);
+    return tips.filter((t) => t.hero === hero);
+  }, [tips, hero]);
 
   const overall = useMemo(() => computeBreakdown(scoped), [scoped]);
 
@@ -87,29 +98,20 @@ export default function MasteryOverview() {
         </h1>
       </div>
 
-      <div className="filter-bar">
-        <select value={hero} onChange={(e) => setHero(e.target.value)}>
-          <option value="All">All heroes</option>
-          {heroes.map((h) => (
-            <option key={h} value={h}>
-              {h}
-            </option>
-          ))}
-        </select>
-      </div>
+      <HeroFilterChips heroes={heroes} iconMap={iconMap} value={hero} onChange={setHero} />
 
       {error && <div className="error-banner">{error}</div>}
 
       {loading ? (
         <div className="spinner-wrap">Loading…</div>
       ) : overall.total === 0 ? (
-        <div className="empty-state">No tips to show{hero !== 'All' ? ` for ${hero}` : ''}.</div>
+        <div className="empty-state">No tips to show for {scopeLabel(hero)}.</div>
       ) : (
         <>
           <div className="card" style={{ marginBottom: 14 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-dim)' }}>
-                {hero === 'All' ? 'Overall Mastery' : `${hero} Mastery`}
+                {scopeLabel(hero)} Mastery
               </span>
               <span style={{ fontSize: 26, fontWeight: 800, color: 'var(--accent)' }}>{overall.score}%</span>
             </div>
