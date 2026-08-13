@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import { useHeroes } from '../hooks/useHeroes';
 import type { PerformanceLogEntry, Tip } from '../types';
 import '../components/ui.css';
 
@@ -9,6 +11,8 @@ export default function PerformanceLog() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const { byId: heroById } = useHeroes();
+  const navigate = useNavigate();
 
   const [wentWell, setWentWell] = useState('');
   const [wentPoorly, setWentPoorly] = useState('');
@@ -57,8 +61,14 @@ export default function PerformanceLog() {
   const filteredTips = useMemo(() => {
     const q = tipSearch.trim().toLowerCase();
     if (!q) return tips.slice(0, 8);
-    return tips.filter((t) => t.text.toLowerCase().includes(q) || t.hero?.toLowerCase().includes(q)).slice(0, 8);
-  }, [tips, tipSearch]);
+    return tips
+      .filter((t) => {
+        if (t.text.toLowerCase().includes(q)) return true;
+        const hero = t.hero_id ? heroById.get(t.hero_id) : undefined;
+        return hero?.name.toLowerCase().includes(q) ?? false;
+      })
+      .slice(0, 8);
+  }, [tips, tipSearch, heroById]);
 
   function toggleTip(id: string) {
     setSelectedTipIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
@@ -100,11 +110,22 @@ export default function PerformanceLog() {
     void load();
   }
 
+  function goToTip(tip: Tip) {
+    if (tip.kind === 'character' && tip.hero_id) {
+      const hero = heroById.get(tip.hero_id);
+      if (hero) {
+        navigate(`/hero/${hero.slug}`);
+        return;
+      }
+    }
+    navigate('/');
+  }
+
   return (
     <div>
       <div className="page-header">
         <h1 className="page-title">
-          Performance <span className="accent">Log</span>
+          <span className="accent">LOG</span>
         </h1>
       </div>
 
@@ -145,8 +166,8 @@ export default function PerformanceLog() {
                   className="pill"
                   style={{
                     cursor: 'pointer',
-                    borderColor: selectedTipIds.includes(t.id) ? 'var(--accent)' : undefined,
-                    color: selectedTipIds.includes(t.id) ? 'var(--accent)' : undefined,
+                    borderColor: selectedTipIds.includes(t.id) ? 'var(--gold)' : undefined,
+                    color: selectedTipIds.includes(t.id) ? 'var(--gold)' : undefined,
                   }}
                   title={t.text}
                 >
@@ -154,7 +175,7 @@ export default function PerformanceLog() {
                 </button>
               ))}
               {filteredTips.length === 0 && (
-                <span style={{ fontSize: 12, color: 'var(--text-faint)' }}>No matches</span>
+                <span style={{ fontSize: 12, color: 'var(--muted)' }}>No matches</span>
               )}
             </div>
           </div>
@@ -173,49 +194,48 @@ export default function PerformanceLog() {
         <div className="empty-state">No sessions logged yet.</div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {entries.map((e) => (
-            <div className="card" key={e.id}>
-              <div style={{ fontSize: 11.5, color: 'var(--text-faint)', marginBottom: 8, fontWeight: 700 }}>
-                {new Date(e.created_at).toLocaleString(undefined, {
-                  month: 'short',
-                  day: 'numeric',
-                  hour: 'numeric',
-                  minute: '2-digit',
-                })}
+          {entries.map((e) => {
+            const firstTip = e.tip_ids && e.tip_ids.length > 0 ? tipsById.get(e.tip_ids[0]) : undefined;
+            const workingOnHero = firstTip?.hero_id ? heroById.get(firstTip.hero_id) : undefined;
+            return (
+              <div className="card" key={e.id}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+                  {workingOnHero && <span className="log-hero-dot" style={{ background: workingOnHero.accent }} />}
+                  <span className="mono-label">
+                    {new Date(e.created_at).toLocaleString(undefined, {
+                      month: 'short',
+                      day: 'numeric',
+                      hour: 'numeric',
+                      minute: '2-digit',
+                    })}
+                  </span>
+                </div>
+                {e.went_well && (
+                  <div style={{ marginBottom: 6 }}>
+                    <span style={{ color: 'var(--sage)', fontSize: 12, fontWeight: 700 }}>Went well: </span>
+                    <span style={{ fontSize: 14 }}>{e.went_well}</span>
+                  </div>
+                )}
+                {e.went_poorly && (
+                  <div style={{ marginBottom: 6 }}>
+                    <span style={{ color: 'var(--rust)', fontSize: 12, fontWeight: 700 }}>Went poorly: </span>
+                    <span style={{ fontSize: 14 }}>{e.went_poorly}</span>
+                  </div>
+                )}
+                {e.key_takeaway && (
+                  <div>
+                    <span style={{ color: 'var(--gold)', fontSize: 12, fontWeight: 700 }}>Takeaway: </span>
+                    <span style={{ fontSize: 14 }}>{e.key_takeaway}</span>
+                  </div>
+                )}
+                {firstTip && (
+                  <button type="button" className="log-working-on" onClick={() => goToTip(firstTip)}>
+                    Working on: {firstTip.text.length > 60 ? firstTip.text.slice(0, 60) + '…' : firstTip.text}
+                  </button>
+                )}
               </div>
-              {e.went_well && (
-                <div style={{ marginBottom: 6 }}>
-                  <span style={{ color: 'var(--mastered)', fontSize: 12, fontWeight: 700 }}>Went well: </span>
-                  <span style={{ fontSize: 14 }}>{e.went_well}</span>
-                </div>
-              )}
-              {e.went_poorly && (
-                <div style={{ marginBottom: 6 }}>
-                  <span style={{ color: 'var(--learning)', fontSize: 12, fontWeight: 700 }}>Went poorly: </span>
-                  <span style={{ fontSize: 14 }}>{e.went_poorly}</span>
-                </div>
-              )}
-              {e.key_takeaway && (
-                <div style={{ marginBottom: e.tip_ids?.length ? 8 : 0 }}>
-                  <span style={{ color: 'var(--accent)', fontSize: 12, fontWeight: 700 }}>Takeaway: </span>
-                  <span style={{ fontSize: 14 }}>{e.key_takeaway}</span>
-                </div>
-              )}
-              {e.tip_ids && e.tip_ids.length > 0 && (
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                  {e.tip_ids.map((id) => {
-                    const t = tipsById.get(id);
-                    if (!t) return null;
-                    return (
-                      <span key={id} className="pill pill-hero" style={{ cursor: 'default' }}>
-                        {t.text.length > 28 ? t.text.slice(0, 28) + '…' : t.text}
-                      </span>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>

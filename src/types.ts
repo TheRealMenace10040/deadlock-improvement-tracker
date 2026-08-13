@@ -17,20 +17,40 @@ export const TIP_CATEGORIES: TipCategory[] = [
   'Mindset',
 ];
 
-export type TipStatus = 'Learning' | 'Practicing' | 'Mastered';
+export type TipStatus = 'LEARNING' | 'DRILLING' | 'LOCKED IN';
 
-export const TIP_STATUSES: TipStatus[] = ['Learning', 'Practicing', 'Mastered'];
+export const TIP_STATUSES: TipStatus[] = ['LEARNING', 'DRILLING', 'LOCKED IN'];
+
+export type TipKind = 'learning' | 'character';
 
 export interface Tip {
   id: string;
   text: string;
   category: TipCategory;
-  hero: string | null;
+  kind: TipKind;
+  hero_id: string | null;
+  vs_hero_id: string | null;
   status: TipStatus;
+  note: string | null;
   created_at: string;
 }
 
-export type HeroFilterValue = string | 'All' | 'General';
+export type HeroRole = 'Hyper-Carry' | 'Anti-Carry' | 'Support' | 'Tank' | 'Bruiser' | 'Avoid for now';
+
+export const HERO_ROLES: HeroRole[] = ['Hyper-Carry', 'Anti-Carry', 'Support', 'Tank', 'Bruiser', 'Avoid for now'];
+
+export interface Hero {
+  id: string;
+  name: string;
+  slug: string;
+  role: HeroRole;
+  accent: string;
+  blurb: string | null;
+  portrait_url: string | null;
+  font_family: string | null;
+  letter_spacing: string | null;
+  sort_order: number;
+}
 
 export interface PerformanceLogEntry {
   id: string;

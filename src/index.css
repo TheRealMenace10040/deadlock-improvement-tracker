@@ -1,35 +1,28 @@
 :root {
   color-scheme: dark;
 
-  /* Dark gaming HUD palette */
-  --bg: #0a0c10;
-  --bg-elevated: #12161d;
-  --bg-card: #171c25;
-  --bg-card-hover: #1e2530;
-  --border: #262d3a;
-  --border-bright: #3a4457;
+  /* Old Gods palette */
+  --ground: #16130F;
+  --surface: #1E1A15;
+  --bone: #EDE4D2;
+  --body-text: #DCD3C1;
+  --muted: #8A8073;
+  --muted-2: #6E6558;
+  --gold: #D9A441;
+  --rust: #C1502E;
+  --sage: #8FA35C;
 
-  --accent: #ff7a1a;
-  --accent-dim: #b85812;
-  --accent-glow: rgba(255, 122, 26, 0.35);
+  --hairline: rgba(237, 228, 210, 0.12);
+  --hairline-strong: rgba(237, 228, 210, 0.16);
+  --hairline-faint: rgba(237, 228, 210, 0.08);
 
-  --accent-2: #7c5cff;
-  --accent-2-dim: #4d3aa8;
+  --status-learning: #D9A441;
+  --status-drilling: #C1502E;
+  --status-locked-in: #8FA35C;
 
-  --text: #eef1f6;
-  --text-dim: #9aa4b5;
-  --text-faint: #626d80;
-
-  --success: #37d67a;
-  --warning: #ffb020;
-  --danger: #ff4d4f;
-
-  --learning: #ff4d4f;
-  --practicing: #ffb020;
-  --mastered: #37d67a;
-
-  --radius: 10px;
-  --radius-lg: 16px;
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -42,17 +35,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--ground);
+  color: var(--body-text);
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
-  background-image:
-    radial-gradient(circle at 15% 0%, rgba(124, 92, 255, 0.08), transparent 40%),
-    radial-gradient(circle at 85% 0%, rgba(255, 122, 26, 0.1), transparent 45%);
-  background-attachment: fixed;
+  font-family: var(--font-body);
+  font-weight: 400;
 }
 
 #root {
@@ -64,28 +54,37 @@ body {
 
 h1, h2, h3, h4, p {
   margin: 0;
+  font-family: var(--font-display);
 }
 
 button {
   font-family: inherit;
+  border-radius: 0;
 }
 
 input, textarea, select {
   font-family: inherit;
-  color: var(--text);
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  color: var(--bone);
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 0;
 }
 
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  border-color: var(--gold);
 }
 
 a {
-  color: var(--accent);
+  color: var(--gold);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  color: var(--muted);
 }
 
 ::-webkit-scrollbar {
@@ -93,6 +92,5 @@ a {
   height: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-bright);
-  border-radius: 8px;
+  background: var(--hairline-strong);
 }

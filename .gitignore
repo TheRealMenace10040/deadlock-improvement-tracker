@@ -30,3 +30,6 @@ dist-ssr
 
 .vercel
 .env*
+
+# local-only data snapshots
+scripts/backups/

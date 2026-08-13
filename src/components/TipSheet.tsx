@@ -1,42 +1,44 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import type { Tip, TipCategory, TipStatus } from '../types';
+import type { Tip, TipCategory, TipKind, TipStatus } from '../types';
 import { TIP_CATEGORIES, TIP_STATUSES } from '../types';
-import HeroIcon from './HeroIcon';
 import './ui.css';
 
-interface TipEditorSheetProps {
+interface TipSheetProps {
   mode: 'create' | 'edit';
   tip?: Tip;
-  heroSuggestions: string[];
-  iconMap: Map<string, string>;
+  defaultKind?: TipKind;
+  defaultHeroId?: string | null;
   onClose: () => void;
   onSaved: (tip: Tip) => void;
   onDeleted?: (id: string) => void;
-  upsertIcon: (name: string, file: File) => Promise<string>;
 }
 
-export default function TipEditorSheet({
+const STATUS_LABEL_CLASS: Record<TipStatus, string> = {
+  LEARNING: 'status-learning',
+  DRILLING: 'status-drilling',
+  'LOCKED IN': 'status-locked-in',
+};
+
+export default function TipSheet({
   mode,
   tip,
-  heroSuggestions,
-  iconMap,
+  defaultKind = 'learning',
+  defaultHeroId = null,
   onClose,
   onSaved,
   onDeleted,
-  upsertIcon,
-}: TipEditorSheetProps) {
+}: TipSheetProps) {
+  const kind: TipKind = tip?.kind ?? defaultKind;
+
   const [text, setText] = useState(tip?.text ?? '');
   const [category, setCategory] = useState<TipCategory>(tip?.category ?? TIP_CATEGORIES[0]);
-  const [heroInput, setHeroInput] = useState(tip?.hero ?? '');
-  const [status, setStatus] = useState<TipStatus>(tip?.status ?? 'Learning');
+  const [status, setStatus] = useState<TipStatus>(tip?.status ?? 'LEARNING');
+  const [note, setNote] = useState(tip?.note ?? '');
 
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
-  const [uploadingIcon, setUploadingIcon] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const trimmedHero = heroInput.trim();
 
   async function handleSave() {
     if (!text.trim()) {
@@ -46,12 +48,18 @@ export default function TipEditorSheet({
     setSaving(true);
     setError(null);
 
-    const payload = {
+    const payload: Record<string, unknown> = {
       text: text.trim(),
-      category,
-      hero: trimmedHero || null,
       status,
+      note: note.trim() || null,
     };
+    if (kind === 'learning') payload.category = category;
+
+    if (mode === 'create') {
+      payload.kind = kind;
+      payload.hero_id = defaultHeroId;
+      if (kind === 'character') payload.category = 'Laning';
+    }
 
     const query =
       mode === 'create'
@@ -86,25 +94,6 @@ export default function TipEditorSheet({
     onClose();
   }
 
-  async function handleIconFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    e.target.value = '';
-    if (!file) return;
-    if (!trimmedHero) {
-      setError('Type a hero name before uploading an icon.');
-      return;
-    }
-    setUploadingIcon(true);
-    setError(null);
-    try {
-      await upsertIcon(trimmedHero, file);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Icon upload failed.');
-    } finally {
-      setUploadingIcon(false);
-    }
-  }
-
   return (
     <div className="sheet-backdrop" onClick={onClose}>
       <div className="sheet" onClick={(e) => e.stopPropagation()}>
@@ -118,64 +107,51 @@ export default function TipEditorSheet({
           </button>
         </div>
 
+        {kind === 'learning' && (
+          <div style={{ marginBottom: 12 }}>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value as TipCategory)}
+              style={{ width: '100%' }}
+            >
+              {TIP_CATEGORIES.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
         <div className="field">
           <label>Tip</label>
-          <textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="What's the tip?" />
-        </div>
-
-        <div className="field">
-          <label>Category</label>
-          <select value={category} onChange={(e) => setCategory(e.target.value as TipCategory)}>
-            {TIP_CATEGORIES.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="field">
-          <label>Hero (leave blank for a general tip)</label>
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <input
-              list="hero-suggestions"
-              value={heroInput}
-              onChange={(e) => setHeroInput(e.target.value)}
-              placeholder="e.g. Abrams"
-              style={{ flex: 1 }}
-            />
-            <datalist id="hero-suggestions">
-              {heroSuggestions.map((h) => (
-                <option key={h} value={h} />
-              ))}
-            </datalist>
-            {trimmedHero && (
-              <>
-                <HeroIcon name={trimmedHero} iconUrl={iconMap.get(trimmedHero)} size={28} />
-                <label className="icon-btn" title="Upload icon for this hero">
-                  {uploadingIcon ? '…' : '📷'}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleIconFile}
-                    style={{ display: 'none' }}
-                    disabled={uploadingIcon}
-                  />
-                </label>
-              </>
-            )}
-          </div>
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="What's the tip?"
+            style={{ fontSize: 16 }}
+          />
         </div>
 
         <div className="field">
           <label>Status</label>
-          <select value={status} onChange={(e) => setStatus(e.target.value as TipStatus)}>
+          <div className="status-btn-row">
             {TIP_STATUSES.map((s) => (
-              <option key={s} value={s}>
+              <button
+                key={s}
+                type="button"
+                className={`status-btn ${STATUS_LABEL_CLASS[s]}${status === s ? ' active' : ''}`}
+                onClick={() => setStatus(s)}
+              >
                 {s}
-              </option>
+              </button>
             ))}
-          </select>
+          </div>
+        </div>
+
+        <div className="field">
+          <label>Note</label>
+          <textarea value={note} onChange={(e) => setNote(e.target.value)} placeholder="Optional" />
         </div>
 
         {error && <div className="error-banner">{error}</div>}
@@ -187,7 +163,7 @@ export default function TipEditorSheet({
               className="btn btn-ghost"
               onClick={handleDelete}
               disabled={deleting || saving}
-              style={{ color: 'var(--danger)' }}
+              style={{ color: 'var(--rust)' }}
             >
               {deleting ? 'Deleting…' : 'Delete'}
             </button>

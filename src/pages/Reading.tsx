@@ -41,22 +41,18 @@ export default function Reading() {
     return (
       <div
         className="card"
-        style={
-          highlighted
-            ? { borderColor: 'var(--accent)', boxShadow: '0 0 0 1px var(--accent-glow)' }
-            : undefined
-        }
+        style={highlighted ? { borderColor: 'var(--gold)' } : undefined}
         onClick={() => toggle(e.id)}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-            {highlighted && <span className="pill pill-hero">Current Patch</span>}
+            {highlighted && <span className="pill" style={{ color: 'var(--gold)', borderColor: 'var(--gold)' }}>Current Patch</span>}
             <h3 style={{ fontSize: 15, fontWeight: 800 }}>{e.title}</h3>
           </div>
-          <span style={{ color: 'var(--text-faint)', fontSize: 18, lineHeight: 1 }}>{isOpen ? '−' : '+'}</span>
+          <span style={{ color: 'var(--muted)', fontSize: 18, lineHeight: 1 }}>{isOpen ? '−' : '+'}</span>
         </div>
         {isOpen && (
-          <p style={{ marginTop: 10, fontSize: 14, lineHeight: 1.55, color: 'var(--text-dim)', whiteSpace: 'pre-wrap' }}>
+          <p style={{ marginTop: 10, fontSize: 14, lineHeight: 1.55, color: 'var(--muted)', whiteSpace: 'pre-wrap' }}>
             {e.body}
           </p>
         )}
@@ -68,7 +64,7 @@ export default function Reading() {
     <div>
       <div className="page-header">
         <h1 className="page-title">
-          Reading & <span className="accent">Knowledge</span>
+          <span className="accent">READING</span>
         </h1>
       </div>
 
@@ -86,7 +82,7 @@ export default function Reading() {
                 style={{
                   fontSize: 12,
                   fontWeight: 800,
-                  color: 'var(--accent)',
+                  color: 'var(--gold)',
                   marginBottom: 10,
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em',
@@ -109,7 +105,7 @@ export default function Reading() {
                   style={{
                     fontSize: 12,
                     fontWeight: 800,
-                    color: 'var(--text-dim)',
+                    color: 'var(--muted)',
                     marginBottom: 10,
                     textTransform: 'uppercase',
                     letterSpacing: '0.05em',

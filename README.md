@@ -1,19 +1,23 @@
 # Deadlock Improvement Tracker
 
-A personal, mobile-first web app for tracking skill development in [Deadlock](https://playdeadlock.com) (Valve's MOBA). Built to be opened quickly on a phone right after a game to jot notes and check progress.
+A personal, mobile-first web app for tracking skill development in [Deadlock](https://playdeadlock.com) (Valve's MOBA). Built to be opened quickly on a phone right after a game to jot notes and check progress. Visual identity: "Old Gods" (bone/gold/rust/sage palette, hairline dividers, per-hero display fonts).
 
 ## Features
 
-- **Tips Library** — a library of tips with category, optional hero, and a 3-stage mastery status (`Learning` → `Practicing` → `Mastered`). Filterable by category, hero, and status. Tips can be added, edited, and deleted via a bottom-sheet editor; hero-specific tips can have an uploaded icon (falls back to a letter avatar).
-- **Mastery Overview** — per-category progress bars, an overall mastery score, and a hero-filtered view.
-- **Performance Log** — freeform post-session notes (what went well / poorly / key takeaway), optionally tagged with the tips you were practicing, in a reverse-chronological list.
-- **Reading & Knowledge** — general knowledge / patch-note style entries, separate from the mastery-tracked tips. Current-patch entries are pinned to the top.
+- **LEARN** — general (non-hero) tips grouped into numbered sections by category, each with a status pill (`LEARNING` → `DRILLING` → `LOCKED IN`). Tap any row to edit it in the tip sheet; `+` adds a new one.
+- **ROSTER** — the full hero roster as a 3-column portrait grid, filterable by role. Each tile shows the hero's role and how many tips exist for them (portraits fall back to an accent-colored initials block until art is uploaded).
+- **HERO** (tap a roster tile) — portrait band, hero name in a per-hero display font, blurb, a tips/locked-in/mastery stat row, that hero's numbered tips, and an "add a tip for this hero" button.
+- **LOG** — freeform post-session notes (what went well / poorly / key takeaway), optionally tagged with tips you were practicing; each entry shows the tagged hero's accent dot and a "working on" line linking back to that tip's home screen.
+- **READING** — general knowledge / patch-note style entries, separate from tips. Current-patch entries are pinned to the top.
+
+Every tip is either `learning` (applies regardless of hero — lives on LEARN, has a category) or `character` (fires only when facing/playing a specific hero — lives on that hero's page, has no category).
 
 ## Tech stack
 
-- **Frontend**: React 19 + TypeScript + Vite, plain CSS (dark gaming HUD theme), `react-router-dom` (hash routing)
-- **Backend/DB**: [Supabase](https://supabase.com) (Postgres + REST API via `@supabase/supabase-js`)
+- **Frontend**: React 19 + TypeScript + Vite, plain CSS (Old Gods theme), `react-router-dom` (hash routing)
+- **Backend/DB**: [Supabase](https://supabase.com) (Postgres + REST API + Storage via `@supabase/supabase-js`)
 - **Hosting**: Vercel
+- **Fonts**: Archivo (display/body) + JetBrains Mono (labels) + 17 Google Fonts for per-hero display names, loaded in one request in `index.html`
 
 ## Local setup
 
@@ -32,23 +36,17 @@ npm run dev
 
 ### Database schema
 
-Schema lives in Supabase (see `scripts/seed.mjs` for the shape of the data). Tables:
-
-- `tips` — `id`, `text`, `category` (enum), `hero` (nullable text), `status` (enum: Learning/Practicing/Mastered), `created_at`
+- `tips` — `id`, `text`, `category` (enum, meaningful only for `kind='learning'`), `kind` (`learning`/`character`), `hero_id` (nullable FK → `heroes.id`, required when `kind='character'`), `vs_hero_id` (nullable FK → `heroes.id`, reserved for a future "hero you play vs. hero you're playing" matchup note), `status` (enum: `LEARNING`/`DRILLING`/`LOCKED IN`), `note` (nullable freeform text), `created_at`
+- `heroes` — `id`, `name`, `slug`, `role` (Hyper-Carry/Anti-Carry/Support/Tank/Bruiser/Avoid for now), `accent` (hex), `blurb`, `portrait_url` (nullable, points into the `hero-portraits` Storage bucket), `font_family`, `letter_spacing`, `sort_order`
 - `performance_log` — `id`, `went_well`, `went_poorly`, `key_takeaway`, `created_at`
-- `performance_log_tips` — join table linking a log entry to the tips tagged as "practiced"
+- `performance_log_tips` — join table linking a log entry to the tips tagged as "practiced" (cascades on tip delete)
 - `reading` — `id`, `title`, `body`, `is_current_patch` (bool, pins the entry to the top of the Reading tab), `created_at`
-- `heroes` — `name` (primary key), `icon_url` (nullable, points into the `hero-icons` Storage bucket), `created_at` — looked up by hero name, not a strict foreign key
 
-RLS is enabled on all tables with an open policy (anon key has full read/write) since this is a single-user personal tool with no login.
+RLS is enabled on all tables with an open policy (anon key has full read/write) since this is a single-user personal tool with no login. The `hero-portraits` Storage bucket is public with open read/write policies for the same reason.
 
 ### Seeding data
 
-`scripts/seed.mjs` + `scripts/seed-data.json` contain the initial 103 tips + 6 reading entries. Run once against a fresh project with:
-
-```bash
-node scripts/seed.mjs
-```
+`scripts/seed.mjs` + `scripts/seed-data.json` are **historical** — they targeted the original pre-"Old Gods" schema (flat `hero`/`source` text columns, `Learning`/`Practicing`/`Mastered` status) and will not run against the current schema. `scripts/backup.mjs` dumps the current `tips`/`heroes`/`performance_log`/`performance_log_tips` tables to `scripts/backups/` — safe to re-run any time as a snapshot before a risky migration.
 
 ## Deployment
 
