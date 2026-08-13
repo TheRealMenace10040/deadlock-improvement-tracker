@@ -314,9 +314,25 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  width: 100%;
   padding: 8px 4px;
   margin-top: 18px;
+  border: none;
   border-bottom: 1px solid var(--hairline-strong);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.section-chevron {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--muted);
+  width: 14px;
+  text-align: center;
 }
 
 .section-header:first-child {

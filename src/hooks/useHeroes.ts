@@ -46,5 +46,12 @@ export function useHeroes() {
     return portraitUrl;
   }, []);
 
-  return { heroes, byId, bySlug, loading, error, reload: load, uploadPortrait };
+  const updateHero = useCallback(async (heroId: string, patch: Partial<Pick<Hero, 'role' | 'blurb'>>) => {
+    const { data, error } = await supabase.from('heroes').update(patch).eq('id', heroId).select().single();
+    if (error) throw new Error(error.message);
+    setHeroes((prev) => prev.map((h) => (h.id === heroId ? (data as Hero) : h)));
+    return data as Hero;
+  }, []);
+
+  return { heroes, byId, bySlug, loading, error, reload: load, uploadPortrait, updateHero };
 }

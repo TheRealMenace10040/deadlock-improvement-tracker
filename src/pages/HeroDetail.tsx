@@ -6,18 +6,20 @@ import type { Tip } from '../types';
 import HeroPortrait from '../components/HeroPortrait';
 import StatusPill from '../components/StatusPill';
 import TipSheet from '../components/TipSheet';
+import HeroEditSheet from '../components/HeroEditSheet';
 import '../components/ui.css';
 
 export default function HeroDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const { bySlug, loading: heroesLoading } = useHeroes();
+  const { bySlug, loading: heroesLoading, uploadPortrait, updateHero } = useHeroes();
   const hero = slug ? bySlug.get(slug) : undefined;
 
   const [tips, setTips] = useState<Tip[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [editingTip, setEditingTip] = useState<Tip | 'new' | null>(null);
+  const [editingHero, setEditingHero] = useState(false);
 
   useEffect(() => {
     if (hero) void load(hero.id);
@@ -81,10 +83,24 @@ export default function HeroDetail() {
 
       <HeroPortrait hero={hero} variant="band" />
 
-      <h1 className="hero-name" style={{ fontFamily: hero.font_family ?? undefined, letterSpacing: hero.letter_spacing ?? undefined }}>
-        {hero.name}
-      </h1>
-      <div className="mono-label" style={{ marginTop: 4 }}>{hero.role}</div>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8 }}>
+        <div>
+          <h1 className="hero-name" style={{ fontFamily: hero.font_family ?? undefined, letterSpacing: hero.letter_spacing ?? undefined }}>
+            {hero.name}
+          </h1>
+          <div className="mono-label" style={{ marginTop: 4 }}>{hero.role}</div>
+        </div>
+        <button
+          type="button"
+          className="icon-btn"
+          onClick={() => setEditingHero(true)}
+          aria-label="Edit hero"
+          title="Edit hero"
+          style={{ marginTop: 16 }}
+        >
+          ✏️
+        </button>
+      </div>
       {hero.blurb && <p className="hero-blurb">{hero.blurb}</p>}
 
       <div className="hero-stat-row">
@@ -141,6 +157,16 @@ export default function HeroDetail() {
           onClose={() => setEditingTip(null)}
           onSaved={handleSaved}
           onDeleted={handleDeleted}
+        />
+      )}
+
+      {editingHero && (
+        <HeroEditSheet
+          hero={hero}
+          onClose={() => setEditingHero(false)}
+          onSaved={() => setEditingHero(false)}
+          uploadPortrait={uploadPortrait}
+          updateHero={updateHero}
         />
       )}
     </div>
